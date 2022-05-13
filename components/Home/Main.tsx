@@ -3,7 +3,7 @@ import React from 'react';
 const Main = () => {
   return (
     <section className='mt-16'>
-      <span className='border-b-2 border-accent_blue px-2 py-[0.3em] rounded-sm uppercase text-[0.8rem] font-semibold tracking-wider'>
+      <span className='border-b-2 border-accent_blue px-2 py-[0.3em] rounded-sm uppercase text-[0.8rem] font-semibold tracking-wider hover:border-t-2 transition-all duration-100 ease-in-out'>
         # Looking for Internship
       </span>
       <h1 className='text-4xl sm:text-5xl font-bold mt-5'>
