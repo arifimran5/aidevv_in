@@ -4,7 +4,7 @@ import React from 'react';
 
 const Navbar = () => {
   return (
-    <nav className='space-x-12 md:space-x-16 xl:space-x-20 pt-16 pb-8 '>
+    <nav className='space-x-12 md:space-x-16 xl:space-x-20 pt-10 pb-8 '>
       <NavItem href='/' text='/home' />
       <NavItem href='/blog' text='/blog' />
     </nav>

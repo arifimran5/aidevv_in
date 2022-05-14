@@ -1,0 +1,94 @@
+---
+title: getStaticProps in NextJS
+date: '2022-04-09'
+description: 'what is getStaticProps, why and how it is used in NextJS'
+---
+
+## What is NextJS
+
+[NextJS](https://nextjs.org/) is a framework for React developed by [vercel](https://vercel.com/). It provides many benefits over simple create react app like static site generation, server-side generation, file-based routing, API routes, etc. It’s almost a full-stack framework that not only runs on the client-side but also on the server-side.
+
+## Data fetching in NextJS
+
+To fetch the data from our own backend or using third-party APIs, we generally use client-side fetching using the `fetch` API provided by the browser. It fetches the data from the client-side on every request or browser reload.
+
+But NextJS provides us with better ways to fetch the data from the server. It gives us functions to pre-render our HTML on `build time` or `request time`. Those functions are
+
+1. getServerSideProps: It renders the data at every request. It runs on the server-side and never on the browser.
+2. getStaticProps: It helps generates the HTML page on the build time (when the code is deployed to production). It’s efficient for static data that changes less frequently.
+
+Let’s take a look at `getStaticProp` in more detail:
+
+## getStaticProps
+
+It’s an async function that we export from the page component, used to generate data on the build time. It fetches the data and generates the HTML pages on our server and it caches it. So when we navigate to this page on our client-side, the cached HTML page is served directly to us, which is very useful for search engine optimization (SEO).
+
+The code we write inside getStaticProps is safe and never runs on the browser. So we can also access our database using ORMs like [Prisma](https://www.prisma.io/) inside this function as it runs on the server.
+
+```jsx
+export async function getStaticProps() {
+  // data fetching
+
+  return {
+    props: {}, // data added inside props will be received by page component as `props`
+  };
+}
+```
+
+We return an object from this function where we pass the `props` property with the data that you want to provide to the page component.
+
+### When should we use getStaticProps?
+
+- When the data is not changing frequently like a blog website
+- Data that is coming from any content management system (CMS).
+- To get blazing fast, pre-rendered HTML and SEO friendly.
+
+Let’s see how it works by fetching pokemon data from [PokeAPI](https://pokeapi.co/)
+
+```jsx
+// page Component, recieving allPokemons from getStaticProps
+export default function Home({ allPokemons }) {
+  return (
+    <ul>
+      {/* mapping all the data inside an unordered list */}
+      {allPokemons.map((poke) => (
+        <li key={poke.url}>{poke.name}</li>
+      ))}
+    </ul>
+  );
+}
+
+export async function getStaticProps() {
+  // call the fetch method and passing the pokeAPI link
+  const response = await fetch('https://pokeapi.co/api/v2/pokemon/');
+
+  // parse the JSON
+  const data = await response.json();
+
+  // finally we return the result inside props as allPokemons
+  return {
+    props: { allPokemons: data.results },
+  };
+}
+```
+
+![Displaying fetched data](/blog/getStaticProps/Displaying-fetched-data.png)
+
+### revalidate property ?
+
+NextJS also provides us a feature to update the data after a certain time when the user visits our page. It’s called Incremental site generation. To enable this we add `revalidate:10` property inside the return object. Here `10` is the time in seconds after which it fetches the data again if requested by the user. With the help of this, we can also show dynamic data coming from our server without needing to rebuild the website.
+
+```jsx
+export async function getStaticProps() {
+  // data fetching
+
+  return {
+    props: {},
+    revalidate: 60,
+  };
+}
+```
+
+References:
+
+[https://nextjs.org/docs/basic-features/data-fetching/overview](https://nextjs.org/docs/basic-features/data-fetching/overview)

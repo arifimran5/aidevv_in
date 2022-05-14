@@ -1,0 +1,94 @@
+---
+title: Brief touch on map() , filter() and reduce() methods
+date: '2021-12-02'
+description: 'Map, filter and reduce is very important for javascript developers.'
+---
+
+These are a few methods that are highly used in development and knowing these is a must. So let's begin!
+
+# Map:
+
+The `map()` method creates a new array from an existing one and applies the function to each one of the elements of the first array.
+
+eg.
+
+```jsx
+const numbers = [1, 2, 3, 4];
+const doubled = numbers.map((item) => item * 2);
+console.log(doubled); // [2, 4, 6, 8]
+```
+
+# Filter:
+
+The `filter()` method returns the values based on the conditional statement. It checks the condition for each element of the array and if the condition is true is returns it otherwise not.
+
+eg.
+
+```jsx
+const numbers = [4, 7, 12, 3];
+const evens = numbers.filter((item) => item % 2 === 0);
+console.log(evens); // [4, 12]
+```
+
+```jsx
+const students = [
+  { name: 'abc', attendance: 96 },
+  { name: 'mno', attendance: 60 },
+  { name: 'def', attendance: 89 },
+  { name: 'jkl', attendance: 65 },
+  { name: 'xyz', attendance: 40 },
+];
+
+const eligibleStudent = students.filter((student) => student.attendance >= 75);
+return eligibleStudent; // [ { name: 'abc', grade: 96 }, { name: 'def', grade: 89}]
+```
+
+# Reduce:
+
+The `reduce()` method reduces the array to a single value, executing the provided function on each element of the array.
+
+**syntax: **
+
+```jsx
+array.reduce(function(total, currentValue, currentIndex, arr), initialValue)
+```
+
+Total (The initialValue, or the previously returned value of the function) and currentValue (value of the current element) are required parameters. InitialValue is optional, it sets the initial value of the array. If no initialValue is supplied, the first element in the array will be used as the initial. Calling reduce() on an empty array without an initialValue will throw a TypeError.
+
+e.g.
+
+```jsx
+const euros = [29.76, 41.85, 46.5];
+const sum = euros.reduce((total, amount) => total + amount);
+console.log(sum); // 118.11
+```
+
+```jsx
+var pilots = [
+  {
+    id: 10,
+    name: 'Poe Dameron',
+    years: 14,
+  },
+  {
+    id: 2,
+    name: "Temmin 'Snap' Wexley",
+    years: 30,
+  },
+  {
+    id: 41,
+    name: 'Tallissan Lintra',
+    years: 16,
+  },
+  {
+    id: 99,
+    name: 'Ello Asty',
+    years: 22,
+  },
+];
+
+const totalYears = pilots.reduce((acc, pilot) => acc + pilot.years, 0);
+console.log(totalYears); //82
+```
+
+That's it for this topic. If you learned something, share it with your dev friends. Follow me on [Twitter](https://twitter.com/aidevv_in) for daily tweets about development and tech stuff. That will be very generous of you. Happy coding : )

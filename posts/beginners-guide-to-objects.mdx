@@ -1,0 +1,121 @@
+---
+title: Beginners guide to Objects in Javascript
+date: '2021-12-01'
+description: 'Knowing about objects in javascript is very much required in day to day life of a js developer'
+---
+
+In javascript, Most of the things are Objects. So having a grip over this concept is very necessary. In this guide, we are going to learn about objects, how it is created, used, and more. Let's get started 🔥
+
+## What is an Object?
+
+According to Mozilla developer's guide, An object is a collection of related data and/or functionality. Basically, It consists of some key-value pairs that we call Properties. We can also store methods or functions inside objects.
+
+Let's see how it looks and how we create an object -
+
+```jsx
+var user = {
+  firstName: 'Harshad',
+  lastName: 'Mehta',
+  age: 45,
+  hobbies: ['winning', 'driving Lexus'],
+  isLion: true,
+  message: function () {
+    return `${this.firstName} says Lala!!!`;
+  },
+};
+console.log(user); //this will return all the object values
+console.log(user.message()); // this will run the function message inside the user object
+```
+
+Let's breakdown what's going on here.
+
+Here we created an object name user and we stored all the properties inside `{}` brackets. For each property, we provide a key name and value for that, separated by a `:` colon ( in this case, firstName: 'Harshad'). And finally, all the properties are separated by `,` comma.
+
+An Object can have properties of any data type, as we can see in the example, It has a string, number, boolean, array. Even we had a function in an object, which is called **object methods**.
+
+## How to access the object's properties:
+
+- **Dot Notation(.) ⇒** This is what we used in that example to run the message function inside the user object. we access the values of properties in the object by using dot(.) after the key name. for example - we can get the age of the user in the previous example by doing `console.log(user.age)`. This will give 45 as the result.
+- **Bracket Notation []** ⇒ This is another way to access the values of the object. e.g.`console.log(user['age'])` this will give the age of the user that is 45.
+
+## Nesting objects ✨:
+
+In the previous example, we could have also made a nested object instead of an array for hobbies. e.g.
+
+```jsx
+//This is how we nest objects
+var user = {
+  firstName: 'Harshad',
+  lastName: 'Mehta',
+  age: 45,
+  isLion: true,
+  hobbies: {
+    firstHobby: 'Winning',
+    secondHobby: 'Driving Lexus',
+  },
+  message: function () {
+    return `${this.firstName} says Lala !! `;
+  },
+};
+// accessing nested object.
+console.log(user.hobbies.firstHobby); // Winning
+console.log(user['hobbies']['firstHobby']); //Winning
+```
+
+## Set and update object members:
+
+```jsx
+var user = {
+  firstName: 'Harshad',
+  lastName: 'Mehta',
+  age: 45,
+  isLion: true,
+};
+
+user.age = 55;
+user.isLion = false;
+console.log(user.age); //55
+console.log(user.isLion); //false
+```
+
+I hope you go the idea of what is happening here, pretty straight-forward.
+
+We can also set the new members by doing the same thing, e.g.
+
+```jsx
+var user = {
+  firstName: 'Harshad',
+  age: 45,
+};
+user.luckyNumber = 5; //this will create a new property in user object
+console.log(user); //{ firstName: 'Harshad', age: 45, luckyNumber: 5 }
+```
+
+## What is 'this' keyword :
+
+We have seen in the first example that we returned the firstName inside message function referring `this.firstName`. Basically, 'this' refers to the object itself in which it is written. In our example, this refers to the user object.
+
+'this' is very useful — it always ensures that the correct values are used when a member's context changes. e.g.
+
+```jsx
+var user1 = {
+  name: 'Harshad',
+  age: 45,
+  message: function () {
+    return `${this.name} says Hii`;
+  },
+};
+var user2 = {
+  name: 'John',
+  age: 30,
+  message: function () {
+    return `${this.name} says Bye`;
+  },
+};
+console.log(user1.message()); // Harshad says Hii
+console.log(user2.message()); // John says Bye
+```
+
+Even we used `${this.name}` in both the objects, but we get different results i.e. Harshad and John respectively. It is highly used when we dynamically create objects.
+
+So that's it for now, this is enough for getting started. If you liked this post, pls upvote and share. Also, you can follow me on [Twitter](https://twitter.com/aidevv_in) for more development-related info. Very much appreciated. Have a great day and Happy coding :)
