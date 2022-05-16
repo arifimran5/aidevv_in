@@ -14,8 +14,16 @@ Flexbox is a good option to go for small to large applications, but we can also 
 
 There is a lot of properties inside the Flexbox module. We set properties both on the parent container and on its children as well. However, we use more properties in its container. Generally, we make a layout in two directions, in block type or inline type. Let's take an example, Nav items are generally aligned in inline flow on a bigger screen ( eg. Home Services About Contact ) and on smaller screens, they are aligned in block type direction like stacks. So the directions are 'Main axis' and 'Cross-axis'.
 
-![main-axis-cross-axis.jpg](/blog/master-flexbox/flex-layout.jpeg)
-It's not fixed that, main-axis is always horizontal. It depends on which direction we want to align. If we want the items to align under each other, in a block manner then our main-axis will be vertical. Understand this concept because this is also relevant in CSS Grid.
+<Image
+  alt='main-axis-cross-axis'
+  width='800'
+  height='400'
+  src='/blog/master-flexbox/flex-layout.jpeg'
+/>
+It's not fixed that, main-axis is always horizontal. It depends on which direction
+we want to align. If we want the items to align under each other, in a block manner
+then our main-axis will be vertical. Understand this concept because this is also
+relevant in CSS Grid.
 
 ### Let's understand the different properties of Flexbox:
 
@@ -27,9 +35,9 @@ In this guide, I'll be showing you properties that we apply on flex container an
 
 This defines the flex container, the initial property you need to put.
 
-```
-.parent{
-	display: flex;
+```css
+.parent {
+  display: flex;
 }
 ```
 
@@ -37,37 +45,49 @@ This defines the flex container, the initial property you need to put.
 
 This defines the main axis of your container. In other words, this gives the direction to its child elements to follow the given axis. Its values can be any of these mentioned below :
 
-```
-.parent{
-	display: flex;
-	flex-direction: row | row-reverse | column | column-reverse;
+```css
+.parent {
+  display: flex;
+  flex-direction: row | row-reverse | column | column-reverse;
 }
 ```
 
 Note that the default direction is **row** whenever you will apply display: flex; to the container.
 
-![flex-direction property row.jpg](/blog/master-flexbox/flex-direction.jpeg)
-
+<Image
+  alt='flex-direction property'
+  width='800'
+  height='400'
+  src='/blog/master-flexbox/flex-direction.jpeg'
+/>
 ### Flex-wrap:
 
 Flex items tend to be in one line and when you don't want that, we tweak the Flex-wrap property. This property is very much responsible for the responsiveness of the flex container. It has 3 values. Default is nowrap.
 
-```
-.parent{
-	display: flex;
-	flex-wrap: nowrap | wrap | wrap-reverse;
+```css
+.parent {
+  display: flex;
+  flex-wrap: nowrap | wrap | wrap-reverse;
 }
 ```
 
-![flex-wrap.jpg](/blog/master-flexbox/flex-wrap.jpeg)
-When you have items in the container that does not fit in one line and you want it to be responsive, then we apply `flex-wrap: wrap;`. when the screen size is less, then it automatically fits the content and the rest items go to a new line. [check this link if you want to try it.](https://css-tricks.com/almanac/properties/f/flex-wrap/)
+<Image
+  alt='flex-wrap'
+  width='800'
+  height='400'
+  src='/blog/master-flexbox/flex-wrap.jpeg'
+/>
+When you have items in the container that does not fit in one line and you want it
+to be responsive, then we apply `flex-wrap: wrap;`. when the screen size is less,
+then it automatically fits the content and the rest items go to a new line. [check
+this link if you want to try it.](https://css-tricks.com/almanac/properties/f/flex-wrap/)
 
 ### Flex-flow:
 
 This is shorthand of flex-direction and flex-wrap property. The default value is row nowrap.
 
-```
-.parent{
+```css
+.parent {
   flex-flow: column wrap;
 }
 ```
@@ -76,13 +96,19 @@ This is shorthand of flex-direction and flex-wrap property. The default value is
 
 This is one of the most useful properties in flexbox. It provides alignment along the main-axis, distributes the free-space in an order. Lets's understand this visually.
 
-```
-.parent{
-  justify-content:flex-start| flex-end| center| space-between| space-around| space-evenly;
+```css
+.parent {
+  justify-content: flex-start| flex-end| center| space-between| space-around|
+    space-evenly;
 }
 ```
 
-![justify-content.jpg](/blog/master-flexbox/justify-content.jpeg)
+<Image
+  alt='justify-content'
+  width='800'
+  height='1257'
+  src='/blog/master-flexbox/justify-content.jpeg'
+/>
 **Flex-start** (default): items are towards the start of the flex-direction.
 
 **Flex-end** : towards the end.
@@ -99,13 +125,19 @@ This is one of the most useful properties in flexbox. It provides alignment alon
 
 This gives positioning in the cross-axis of the flex-direction. Its just like justify content but in cross-axis. Its values are,
 
-```
-.parent{
-  align-content:stretch | flex-start | flex-end | center | baseline;
+```css
+.parent {
+  align-content: stretch | flex-start | flex-end | center | baseline;
 }
 ```
 
-![align-items.jpg](/blog/master-flexbox/align-items.jpeg)
+<Image
+  alt='align-items'
+  width='800'
+  height='1608'
+  src='/blog/master-flexbox/align-items.jpeg'
+/>
+
 All the values are pretty self-explanatory,
 
 **stretch** (default): stretch to fill the container.
@@ -122,13 +154,19 @@ All the values are pretty self-explanatory,
 
 This aligns a flex container’s lines within when there is extra space in the cross-axis. It's similar to the justify-content but in the cross axis. ( **Note:** This property only takes effect on multi-line flexible containers, where flex-flow is set to either wrap or wrap-reverse).
 
-```
-.parent{
-  align-content: flex-start | flex-end | center | space-between | space-around | space-evenly
+```css
+.parent {
+  align-content: flex-start | flex-end | center | space-between | space-around |
+    space-evenly;
 }
 ```
 
-![align-content.jpg](/blog/master-flexbox/align-content.jpeg)
+<Image
+  alt='align-content'
+  width='800'
+  height='1981'
+  src='/blog/master-flexbox/align-content.jpeg'
+/>
 
 ## Properties for Flex Items:
 
@@ -142,8 +180,6 @@ Flex items are displayed in the same order as they appear in the source document
 }
 ```
 
-You can play with the order on [Codepen](https://codepen.io/).
-
 ### Flex-grow:
 
 It defines the ability for a flex item to grow if necessary. It accepts a unitless value that serves as a proportion. It dictates what amount of the available space inside the flex container the item should take up.
@@ -156,7 +192,12 @@ For example, if all items have `flex-grow` set to 1, every child will set to an 
 }
 ```
 
-![flex-grow.jpg](/blog/master-flexbox/flex-grow.jpeg)
+<Image
+  alt='flex-grow'
+  width='800'
+  height='394'
+  src='/blog/master-flexbox/flex-grow.jpeg'
+/>
 
 ### Flex-shrink:
 
@@ -172,12 +213,12 @@ These 3 topics might be confusing, but you will understand once you play with th
 
 It's a shorthand for Flex-grow, Flex-shrink, Flex-basis.
 
-```
-.item{
-	flex: 1 10px ;
-	/* This is same as flex-grow:1 and flex-basis:10px and shrink is default 1*/
-	flex:1 2 20px;
-	/* This is same as flex-grow:1, flex-shrink:2 , flex-basis:20px */
+```css
+.item {
+  flex: 1 10px;
+  /* This is same as flex-grow:1 and flex-basis:10px and shrink is default 1*/
+  flex: 1 2 20px;
+  /* This is same as flex-grow:1, flex-shrink:2 , flex-basis:20px */
 }
 ```
 
@@ -185,13 +226,18 @@ It's a shorthand for Flex-grow, Flex-shrink, Flex-basis.
 
 It makes it possible to override the align-items value for specific flex items. It has 5 values and auto.
 
-```
-.item{
-  align-self:auto | flex-start | flex-end | center | baseline | stretch;
+```css
+.item {
+  align-self: auto | flex-start | flex-end | center | baseline | stretch;
 }
 ```
 
-![align-self.jpg](/blog/master-flexbox/align-self.jpeg)
+<Image
+  alt='align-self'
+  width='800'
+  height='314'
+  src='/blog/master-flexbox/align-self.jpeg'
+/>
 
 ## Conclusion:
 

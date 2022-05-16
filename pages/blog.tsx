@@ -20,9 +20,11 @@ const BlogPage: NextPage = ({ posts }: { posts: Post[] }) => {
       <Container>
         <Navbar />
         <h1 className='text-4xl mt-8 mb-4 font-bold'>Blogs</h1>
-        {posts.map((post, idx) => (
-          <PostCard key={idx} {...post} />
-        ))}
+        <section className='post_list grid grid-cols-1 xl:grid-cols-2 gap-x-12 gap-y-8'>
+          {posts.map((post, idx) => (
+            <PostCard key={idx} {...post} />
+          ))}
+        </section>
       </Container>
     </div>
   );

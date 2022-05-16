@@ -1,6 +1,6 @@
 import { format, parseISO } from 'date-fns';
 import { allPosts, Post } from 'contentlayer/generated';
-
+import MDXcompoenents from '../../components/Layout/MDXcomponents';
 import { NextSeo } from 'next-seo';
 import { useMDXComponent } from 'next-contentlayer/hooks';
 import Link from 'next/link';
@@ -33,22 +33,32 @@ const PostLayout = ({ post }: { post: Post }) => {
   return (
     <Container>
       <NextSeo title={post.title} description={post.title} />
-      <div className=''>
+      <div className=' flex gap-2 items-center py-5'>
         <IoMdArrowBack />
         <Link href='/blog'>Back to Blog page</Link>
       </div>
       <article className=''>
         <div className=''>
-          <h1>{post.title}</h1>
-          <time dateTime={post.date}>
-            {format(parseISO(post.date), 'LLLL d, yyyy')}
-          </time>
+          <h1 className='font-bold text-4xl xl:text-5xl my-2'>{post.title}</h1>
+          <div className='flex justify-between items-center text-gray-600 font-medium'>
+            <time dateTime={post.date} className=''>
+              {format(parseISO(post.date), 'LLLL d, yyyy')}
+            </time>
+
+            <div className='flex gap-2 '>
+              <span>
+                {post.readingTime.text} {` • `}
+                {''}
+              </span>
+              <span>{post.wordCount} words</span>
+            </div>
+          </div>
         </div>
         <div
-          className=''
+          className='my-8 blog-page prose'
           // dangerouslySetInnerHTML={{ __html: post.body.raw }}
         >
-          <Component />
+          <Component components={{ ...MDXcompoenents }} />
         </div>
       </article>
     </Container>
