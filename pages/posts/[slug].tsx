@@ -39,10 +39,12 @@ const PostLayout = ({ post }: { post: Post }) => {
       </div>
       <article className=''>
         <div className=''>
-          <h1 className='font-bold text-4xl xl:text-5xl my-2'>{post.title}</h1>
-          <div className='flex justify-between items-center text-gray-600 font-medium'>
+          <h1 className='font-bold text-2xl sm:text-3xl xl:text-4xl my-2'>
+            {post.title}
+          </h1>
+          <div className='flex justify-between items-center text-sm text-gray-600 font-medium'>
             <time dateTime={post.date} className=''>
-              {format(parseISO(post.date), 'LLLL d, yyyy')}
+              {format(parseISO(post.date), 'LLL d,yyyy')}
             </time>
 
             <div className='flex gap-2 '>
