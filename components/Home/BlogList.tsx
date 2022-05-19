@@ -15,8 +15,16 @@ const BlogList = ({ posts }) => {
           gradient='from-[#FF8787] via-[#0646BE] to-[#5FFBF1]'
         />
 
-        <HomePostCard post={posts[2]} gradient='from-[#051937]  to-[#A8EB12]' />
+        <HomePostCard
+          post={posts[2]}
+          gradient='from-[#ae59f0] via-[#101324]  to-[#5975f0]'
+        />
       </div>
+      <Link href='/blog'>
+        <span className='text-blue-600 hover:font-medium cursor-pointer'>
+          Read More Blogs ➝
+        </span>
+      </Link>
     </section>
   );
 };

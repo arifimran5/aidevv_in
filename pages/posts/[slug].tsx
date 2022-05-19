@@ -6,6 +6,7 @@ import { useMDXComponent } from 'next-contentlayer/hooks';
 import Link from 'next/link';
 import { IoMdArrowBack } from 'react-icons/io';
 import Container from 'components/Layout/Container';
+import Footer from 'components/Layout/Footer';
 
 export async function getStaticPaths() {
   const paths: string[] = allPosts.map((post) => post.url);
@@ -63,6 +64,7 @@ const PostLayout = ({ post }: { post: Post }) => {
           <Component components={{ ...MDXcompoenents }} />
         </div>
       </article>
+      <Footer />
     </Container>
   );
 };

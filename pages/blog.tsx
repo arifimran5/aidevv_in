@@ -6,6 +6,7 @@ import Container from '../components/Layout/Container';
 import Navbar from '../components/Layout/Navbar';
 import { allPosts, Post } from 'contentlayer/generated';
 import PostCard from 'components/Blog/PostCard';
+import Footer from 'components/Layout/Footer';
 
 export async function getStaticProps() {
   const posts: Post[] = allPosts.sort((a, b) => {
@@ -63,6 +64,7 @@ const BlogPage: NextPage = ({ posts }: { posts: Post[] }) => {
             <PostCard key={post._id} {...post} />
           ))}
         </section>
+        <Footer />
       </Container>
     </div>
   );

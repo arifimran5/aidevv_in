@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 
+html{
+  scroll-behavior: smooth;
+}
+
 .blog-page ul li {
   list-style: disc;
 }

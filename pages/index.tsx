@@ -1,4 +1,5 @@
 import BlogList from 'components/Home/BlogList';
+import Footer from 'components/Layout/Footer';
 import { allPosts, Post } from 'contentlayer/generated';
 import { compareDesc } from 'date-fns';
 import type { NextPage } from 'next';
@@ -29,6 +30,7 @@ const Home: NextPage = ({ posts }: { posts: Post[] }) => {
         <Projects />
         <Technologies />
         <BlogList posts={latest3Posts} />
+        <Footer />
       </Container>
     </>
   );
