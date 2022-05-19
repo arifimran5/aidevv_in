@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className='my-20' id='footer'>
       <hr className='mb-6 border-gray-300' />
-      <section className='text-gray-500 grid grid-cols-2 lg:grid-cols-3'>
+      <section className='text-gray-500 grid grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-6'>
         <div className='flex flex-col gap-4'>
           {' '}
           <div>

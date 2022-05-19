@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { IoMdArrowBack } from 'react-icons/io';
 import Container from 'components/Layout/Container';
 import Footer from 'components/Layout/Footer';
+import { useState } from 'react';
 
 export async function getStaticPaths() {
   const paths: string[] = allPosts.map((post) => post.url);
@@ -29,13 +30,36 @@ export async function getStaticProps({ params }) {
 }
 
 const PostLayout = ({ post }: { post: Post }) => {
+  const [backHover, setBackHover] = useState(false);
+
+  const hoverHandler = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    setBackHover(true);
+  };
+
+  const unhoverHandler = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    setBackHover(false);
+  };
+
+  console.log(backHover);
+
   const Component = useMDXComponent(post.body.code);
 
   return (
     <Container>
       <NextSeo title={post.title} description={post.title} />
-      <div className=' flex gap-2 items-center py-5'>
-        <IoMdArrowBack />
+      <div
+        onMouseEnter={hoverHandler}
+        onMouseLeave={unhoverHandler}
+        className=' flex gap-2 items-center my-5'
+      >
+        <div
+          className={
+            backHover ? '-translate-x-2 transition-transform duration-150' : ''
+          }
+        >
+          {' '}
+          <IoMdArrowBack />
+        </div>
         <Link href='/blog'>Back to Blog page</Link>
       </div>
       <article className=''>
