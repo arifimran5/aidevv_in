@@ -1,5 +1,5 @@
 import React from 'react';
-import { Disclosure } from '@headlessui/react';
+import { Disclosure, Transition } from '@headlessui/react';
 import { IoIosArrowForward, IoIosArrowDown } from 'react-icons/io';
 import { ExternalLink, Github } from '../Svgs';
 
@@ -69,18 +69,27 @@ const Project = ({
             </div>
           </Disclosure.Button>
 
-          <Disclosure.Panel className='text-secondary_text pb-4'>
-            <hr className='mb-2' />
-            <h1>{description}</h1>
-            <div className='flex justify-end items-center space-x-4 mt-2'>
-              <a href={ghLink} target='_blank' rel='noreferrer'>
-                <Github />
-              </a>
-              <a href={externalLink} target='_blank' rel='noreferrer'>
-                <ExternalLink />
-              </a>
-            </div>
-          </Disclosure.Panel>
+          <Transition
+            enter='transition duration-100 ease-out'
+            enterFrom='transform scale-95 opacity-0'
+            enterTo='transform scale-100 opacity-100'
+            leave='transition duration-75 ease-out'
+            leaveFrom='transform scale-100 opacity-100'
+            leaveTo='transform scale-95 opacity-0'
+          >
+            <Disclosure.Panel className='text-secondary_text pb-4'>
+              <hr className='mb-2' />
+              <h1>{description}</h1>
+              <div className='flex justify-end items-center space-x-4 mt-2'>
+                <a href={ghLink} target='_blank' rel='noreferrer'>
+                  <Github />
+                </a>
+                <a href={externalLink} target='_blank' rel='noreferrer'>
+                  <ExternalLink />
+                </a>
+              </div>
+            </Disclosure.Panel>
+          </Transition>
         </div>
       )}
     </Disclosure>
