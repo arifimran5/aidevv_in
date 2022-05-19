@@ -14,9 +14,9 @@ const Main = () => {
       <h1 className='text-4xl sm:text-5xl font-bold mt-5'>
         Hey, I&apos;m Arif ✌️
       </h1>
-      <p className='text-secondary_text sm:text-lg lg:text-xl leading-relaxed mt-4 md:mt-6'>
+      <p className='text-gray-600 sm:text-lg lg:text-xl leading-relaxed mt-4 md:mt-6'>
         I am 21 year old{' '}
-        <span className='text-accent_yellow font-medium'>
+        <span className='text-blue-600 font-medium'>
           frontend web developer
         </span>{' '}
         based in India. I love developing web UI and exploring server side

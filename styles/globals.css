@@ -5,6 +5,25 @@
 
 html{
   scroll-behavior: smooth;
+  scrollbar-color: #7bfbff #11093a;
+}
+*::selection {
+  background: #7bfbff;
+  color: #000;
+}
+
+body::-webkit-scrollbar {
+  width: 0.8em;
+}
+
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.123);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #7bfbff;
+  border-radius: 100px;
+  outline: 1px solid rgba(0, 0, 0, 0.164);
 }
 
 .blog-page ul li {
