@@ -40,8 +40,6 @@ const PostLayout = ({ post }: { post: Post }) => {
     setBackHover(false);
   };
 
-  console.log(backHover);
-
   const Component = useMDXComponent(post.body.code);
 
   return (
