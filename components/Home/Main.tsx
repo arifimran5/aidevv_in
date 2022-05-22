@@ -25,9 +25,9 @@ const Main = () => {
       {/* <a href='#'> */}
       <button
         onClick={() => scrollToFooter('footer')}
-        className='px-7 py-[0.8em] bg-accent_green rounded-3xl font-semibold mt-8 hover:scale-105 focus:ring-1 ring-offset-2 ring-accent_blue transition-transform duration-100 ease-in-out'
+        className='px-10 py-[0.8em] bg-accent_green rounded-3xl font-semibold mt-8 hover:scale-105 focus:ring-1 ring-offset-2 ring-accent_blue transition-transform duration-100 ease-in-out'
       >
-        Connect With Me
+        Say Hi ⚡️
       </button>
       {/* </a> */}
     </section>
