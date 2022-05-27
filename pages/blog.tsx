@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import type { NextPage } from 'next';
 import { NextSeo } from 'next-seo';
+import { motion } from 'framer-motion';
 import { compareDesc } from 'date-fns';
 import Container from '../components/Layout/Container';
 import Navbar from '../components/Layout/Navbar';
 import { allPosts, Post } from 'contentlayer/generated';
 import PostCard from 'components/Blog/PostCard';
 import Footer from 'components/Layout/Footer';
-
 export async function getStaticProps() {
   const posts: Post[] = allPosts.sort((a, b) => {
     return compareDesc(new Date(a.date), new Date(b.date));
@@ -26,11 +26,17 @@ const BlogPage: NextPage = ({ posts }: { posts: Post[] }) => {
       <NextSeo title='Blog | aidevv.in' description='Blog page of aidevv.in' />
       <Container>
         <Navbar />
-        <h1 className='text-4xl mt-8 mb-1 font-bold'>Blogs</h1>
-        <p className='mb-4 text-gray-600'>
-          Blogs about web development and software engineering in general. Use
-          the search below to filter by title.
-        </p>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <h1 className='text-4xl mt-8 mb-1 font-bold'>Blogs</h1>
+          <p className='mb-4 text-gray-600'>
+            Blogs about web development and software engineering in general. Use
+            the search below to filter by title.
+          </p>
+        </motion.div>
         <div className='relative w-full mb-8'>
           <input
             aria-label='Search articles'

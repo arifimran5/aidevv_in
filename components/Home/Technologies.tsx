@@ -1,5 +1,7 @@
 import React, { ReactNode } from 'react';
 import { IconType } from 'react-icons';
+import { motion } from 'framer-motion';
+
 import {
   SiReact,
   SiNextdotjs as SiNextDotJs,
@@ -14,7 +16,12 @@ import {
 
 const Technologies = () => {
   return (
-    <section className='mt-20 lg:mt-28'>
+    <motion.section
+      initial={{ y: 100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.8, delay: 1.2 }}
+      className='mt-20 lg:mt-28'
+    >
       <h1 className='font-bold text-2xl'>Technologies 💻️️</h1>
       <div className='mt-8 mb-4 grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-8'>
         <Technology icon={SiReact} text='React' />
@@ -27,7 +34,7 @@ const Technologies = () => {
         <Technology icon={SiPostgresql} text='Postgres' />
         <Technology icon={SiMongodb} text='MongoDB' />
       </div>
-    </section>
+    </motion.section>
   );
 };
 

@@ -1,10 +1,17 @@
 import React from 'react';
-import cn from 'classnames';
 import Link from 'next/link';
+import cn from 'classnames';
+import { motion } from 'framer-motion';
 
 const BlogList = ({ posts }) => {
   return (
-    <section className='mt-20 lg:mt-28'>
+    <motion.section
+      initial={{ opacity: 0, y: 200 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+      className='mt-20 lg:mt-28'
+    >
       <h1 className='font-bold text-2xl'>Latest Blog posts 📖</h1>
 
       <div className=' mt-8 mb-6 flex gap-6 flex-col md:flex-row'>
@@ -25,7 +32,7 @@ const BlogList = ({ posts }) => {
           Read More Blogs ➝
         </span>
       </Link>
-    </section>
+    </motion.section>
   );
 };
 

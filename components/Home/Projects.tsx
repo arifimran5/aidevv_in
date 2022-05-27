@@ -1,5 +1,6 @@
 import React from 'react';
 import { Disclosure, Transition } from '@headlessui/react';
+import { motion } from 'framer-motion';
 import { IoIosArrowForward, IoIosArrowDown } from 'react-icons/io';
 import { ExternalLink, Github } from '../Svgs';
 
@@ -24,7 +25,12 @@ const ProjectsData = [
 
 const Projects = () => {
   return (
-    <section className='mt-20 lg:mt-28'>
+    <motion.section
+      initial={{ y: 100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5, delay: 1 }}
+      className='mt-20 lg:mt-28'
+    >
       <h1 className='font-bold text-2xl'>Projects 💼</h1>
 
       <div className='mt-8 grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-2'>
@@ -38,7 +44,7 @@ const Projects = () => {
           />
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 };
 
