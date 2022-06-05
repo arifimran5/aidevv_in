@@ -26,12 +26,8 @@ const Main = () => {
         transition={{ duration: 0.5, delay: 0.5 }}
         className='text-gray-600 sm:text-lg lg:text-xl leading-relaxed mt-4 md:mt-6'
       >
-        I am 21 year old{' '}
-        <span className='text-blue-600 font-medium'>
-          frontend web developer
-        </span>{' '}
-        based in India. I love developing web UI and exploring server side
-        development with nodeJS.
+        Web developer based in India. Developing Web UI and featureful web
+        applications with react and nodeJS.
       </motion.p>
       {/* <a href='#'> */}
       <motion.button
