@@ -27,7 +27,7 @@ const Footer = () => {
           {' '}
           <div>
             <a
-              href='https://twitter.com/aidevv_in'
+              href='https://twitter.com/arifdotai'
               className='hover:font-medium  cursor-pointer transition-all duration-100'
             >
               Twitter
